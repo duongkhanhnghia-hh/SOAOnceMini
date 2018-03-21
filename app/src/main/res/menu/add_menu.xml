@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        app:showAsAction="withText"
+        android:id="@+id/nm_addBook"
+        android:title="@string/addbook"/>
+
+    <item
+        app:showAsAction="withText"
+        android:id="@+id/nm_delbook"
+        android:title="@string/delbook"/>
+</menu>
