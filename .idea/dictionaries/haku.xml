@@ -2,6 +2,8 @@
   <dictionary name="haku">
     <words>
       <w>addbook</w>
+      <w>allbook</w>
+      <w>bookbycode</w>
       <w>delbook</w>
       <w>lượng</w>
       <w>mainact</w>

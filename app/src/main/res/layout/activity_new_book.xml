@@ -86,6 +86,31 @@
             android:minHeight="50dp" />
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+
+        <TextView
+            android:id="@+id/textview4"
+            style="@style/texStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Mã sách: " />
+
+        <EditText
+            android:id="@+id/addCode"
+            style="@style/texStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview4"
+            android:layout_toRightOf="@+id/textview4"
+            android:gravity="center"
+            android:minHeight="50dp" />
+    </RelativeLayout>
+
     <RelativeLayout
         android:padding="16dp"
         android:layout_width="match_parent"

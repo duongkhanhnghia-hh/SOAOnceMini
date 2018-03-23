@@ -26,4 +26,11 @@
         android:layout_height="wrap_content"
         android:text="author" />
 
+    <TextView
+        android:id="@+id/codeBook"
+        style="@style/texStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="code" />
+
 </LinearLayout>

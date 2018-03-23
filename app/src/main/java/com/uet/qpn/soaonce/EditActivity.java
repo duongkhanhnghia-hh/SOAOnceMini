@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.uet.qpn.soaonce.model.Book;
+
+import java.io.IOException;
 
 public class EditActivity extends AppCompatActivity {
     private Button btnSave;
@@ -17,6 +20,8 @@ public class EditActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editAuthor;
     private EditText editQuantity;
+    private EditText editCode;
+
     private Book book;
     private String position;
 
@@ -33,9 +38,9 @@ public class EditActivity extends AppCompatActivity {
         editName.setText(book.getName());
         editQuantity.setText(String.valueOf(book.getQuantityInStock()));
         editAuthor.setText(book.getAuthor());
+        editCode.setText(book.getCode());
 
         btnSave.setOnClickListener(Save_OnClick);
-
 
 
     }
@@ -44,6 +49,7 @@ public class EditActivity extends AppCompatActivity {
         book = null;
         btnSave = findViewById(R.id.btnSave);
 
+        editCode = findViewById(R.id.editCode);
         editName = findViewById(R.id.editName);
         editAuthor = findViewById(R.id.editAuthor);
         editQuantity = findViewById(R.id.editQuantity);
@@ -53,13 +59,19 @@ public class EditActivity extends AppCompatActivity {
     View.OnClickListener Save_OnClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            try {
+                Book booked = new Book(editName.getText().toString(), Integer.valueOf(editQuantity.getText().toString()),
+                        editAuthor.getText().toString(), editCode.getText().toString());
 
-            Book booked = new Book(editName.getText().toString(), Integer.valueOf(editQuantity.getText().toString()), editAuthor.getText().toString(), book.getCode());
-            Intent intent = new Intent();
-            intent.putExtra("booked", booked);
-            intent.putExtra("position", position);
-            setResult(RESULT_OK, intent);
-            finish();
+                Intent intent = new Intent();
+                intent.putExtra("booked", booked);
+                intent.putExtra("position", position);
+                setResult(RESULT_OK, intent);
+                finish();
+            } catch (RuntimeException e) {
+                Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+
+            }
 
         }
     };

@@ -44,9 +44,12 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+
         holder.viewQuantityInStock.setText(String.valueOf(books.get(position).getQuantityInStock()));
         holder.viewAuthor.setText(books.get(position).getAuthor());
         holder.viewName.setText(books.get(position).getName());
+        holder.viewCode.setText(books.get(position).getCode());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,9 +106,11 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
         TextView viewName;
         TextView viewAuthor;
         TextView viewQuantityInStock;
+        TextView viewCode;
 
         ViewHolder(View itemView) {
             super(itemView);
+            viewCode = itemView.findViewById(R.id.codeBook);
             viewName = itemView.findViewById(R.id.nameOfBook);
             viewAuthor = itemView.findViewById(R.id.authorOfBook);
             viewQuantityInStock = itemView.findViewById(R.id.numOfBook);
@@ -116,6 +121,7 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
         books.get(position).setCode(book.getCode());
         books.get(position).setAuthor(book.getAuthor());
         books.get(position).setName(book.getName());
+
         books.get(position).setQuantityInStock(book.getQuantityInStock());
 
     }

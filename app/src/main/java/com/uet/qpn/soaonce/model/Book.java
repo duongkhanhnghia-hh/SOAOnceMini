@@ -50,4 +50,7 @@ public class Book implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
+    public static void main(String[] args) {
+    }
 }
