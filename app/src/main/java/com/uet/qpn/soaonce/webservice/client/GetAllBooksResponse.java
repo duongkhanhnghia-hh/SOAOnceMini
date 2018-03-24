@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBooksResponse",namespace = "com.uet.pnq.response.allbook",propOrder = {
+@XmlType(name = "getAllBooksResponse", namespace = "com.uet.pnq.getAllBook.response",propOrder = {
     "_return"
 })
 public class GetAllBooksResponse {

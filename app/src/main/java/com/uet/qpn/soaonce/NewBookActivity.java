@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.uet.qpn.soaonce.model.Book;
+import com.uet.qpn.soaonce.webservice.client.Book;
 
 public class NewBookActivity extends AppCompatActivity {
 

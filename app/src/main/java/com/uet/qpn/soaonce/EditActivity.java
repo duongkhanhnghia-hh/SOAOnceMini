@@ -1,18 +1,15 @@
 package com.uet.qpn.soaonce;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.uet.qpn.soaonce.model.Book;
+import com.uet.qpn.soaonce.webservice.client.Book;
 
-import java.io.IOException;
 
 public class EditActivity extends AppCompatActivity {
     private Button btnSave;
@@ -60,8 +57,8 @@ public class EditActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             try {
-                Book booked = new Book(editName.getText().toString(), Integer.valueOf(editQuantity.getText().toString()),
-                        editAuthor.getText().toString(), editCode.getText().toString());
+                Book booked = new Book(editAuthor.getText().toString(), editCode.getText().toString(),
+                        editName.getText().toString(), Integer.valueOf(editQuantity.getText().toString()));
 
                 Intent intent = new Intent();
                 intent.putExtra("booked", booked);

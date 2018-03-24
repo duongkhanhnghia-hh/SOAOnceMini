@@ -27,12 +27,12 @@ public interface WebService {
     /**
      * 
      * @return
-     *     returns java.util.List<client.Book>
+     *     returns java.util.List<com.pnq.webservice.Book>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://webservice.pnq.com/", className = "client.GetAllBooks")
-    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://webservice.pnq.com/", className = "client.GetAllBooksResponse")
+    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.GetAllBooks")
+    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.GetAllBooksResponse")
     @Action(input = "http://webservice.pnq.com/WebService/getAllBooksRequest", output = "http://webservice.pnq.com/WebService/getAllBooksResponse")
     public List<Book> getAllBooks();
 
@@ -40,15 +40,60 @@ public interface WebService {
      * 
      * @param arg0
      * @return
-     *     returns client.Book
+     *     returns com.pnq.webservice.Book
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBookByCode", targetNamespace = "http://webservice.pnq.com/", className = "client.GetBookByCode")
-    @ResponseWrapper(localName = "getBookByCodeResponse", targetNamespace = "http://webservice.pnq.com/", className = "client.GetBookByCodeResponse")
+    @RequestWrapper(localName = "getBookByCode", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.GetBookByCode")
+    @ResponseWrapper(localName = "getBookByCodeResponse", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.GetBookByCodeResponse")
     @Action(input = "http://webservice.pnq.com/WebService/getBookByCodeRequest", output = "http://webservice.pnq.com/WebService/getBookByCodeResponse")
     public Book getBookByCode(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+            @WebParam(name = "arg0", targetNamespace = "")
+                    String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createBook", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.CreateBook")
+    @ResponseWrapper(localName = "createBookResponse", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.CreateBookResponse")
+    @Action(input = "http://webservice.pnq.com/WebService/createBookRequest", output = "http://webservice.pnq.com/WebService/createBookResponse")
+    public boolean createBook(
+            @WebParam(name = "arg0", targetNamespace = "")
+                    Book arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns long
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "updateBook", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.UpdateBook")
+    @ResponseWrapper(localName = "updateBookResponse", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.UpdateBookResponse")
+    @Action(input = "http://webservice.pnq.com/WebService/updateBookRequest", output = "http://webservice.pnq.com/WebService/updateBookResponse")
+    public long updateBook(
+            @WebParam(name = "arg0", targetNamespace = "")
+                    Book arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteBook", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.DeleteBook")
+    @ResponseWrapper(localName = "deleteBookResponse", targetNamespace = "http://webservice.pnq.com/", className = "com.pnq.webservice.DeleteBookResponse")
+    @Action(input = "http://webservice.pnq.com/WebService/deleteBookRequest", output = "http://webservice.pnq.com/WebService/deleteBookResponse")
+    public boolean deleteBook(
+            @WebParam(name = "arg0", targetNamespace = "")
+                    Book arg0);
 
 }

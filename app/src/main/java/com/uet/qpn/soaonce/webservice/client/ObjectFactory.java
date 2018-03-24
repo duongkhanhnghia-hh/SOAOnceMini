@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the client package. 
+ * generated in the com.pnq.webservice package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -24,16 +24,38 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _CreateBook_QNAME = new QName("http://webservice.pnq.com/", "createBook");
+    private final static QName _DeleteBook_QNAME = new QName("http://webservice.pnq.com/", "deleteBook");
     private final static QName _GetAllBooks_QNAME = new QName("http://webservice.pnq.com/", "getAllBooks");
     private final static QName _GetBookByCodeResponse_QNAME = new QName("http://webservice.pnq.com/", "getBookByCodeResponse");
+    private final static QName _DeleteBookResponse_QNAME = new QName("http://webservice.pnq.com/", "deleteBookResponse");
     private final static QName _GetBookByCode_QNAME = new QName("http://webservice.pnq.com/", "getBookByCode");
+    private final static QName _UpdateBookResponse_QNAME = new QName("http://webservice.pnq.com/", "updateBookResponse");
+    private final static QName _UpdateBook_QNAME = new QName("http://webservice.pnq.com/", "updateBook");
     private final static QName _GetAllBooksResponse_QNAME = new QName("http://webservice.pnq.com/", "getAllBooksResponse");
+    private final static QName _CreateBookResponse_QNAME = new QName("http://webservice.pnq.com/", "createBookResponse");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: client
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.pnq.webservice
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CreateBook }
+     * 
+     */
+    public CreateBook createCreateBook() {
+        return new CreateBook();
+    }
+
+    /**
+     * Create an instance of {@link DeleteBook }
+     * 
+     */
+    public DeleteBook createDeleteBook() {
+        return new DeleteBook();
     }
 
     /**
@@ -53,11 +75,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteBookResponse }
+     * 
+     */
+    public DeleteBookResponse createDeleteBookResponse() {
+        return new DeleteBookResponse();
+    }
+
+    /**
      * Create an instance of {@link GetBookByCode }
      * 
      */
     public GetBookByCode createGetBookByCode() {
         return new GetBookByCode();
+    }
+
+    /**
+     * Create an instance of {@link UpdateBookResponse }
+     * 
+     */
+    public UpdateBookResponse createUpdateBookResponse() {
+        return new UpdateBookResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateBook }
+     * 
+     */
+    public UpdateBook createUpdateBook() {
+        return new UpdateBook();
     }
 
     /**
@@ -69,11 +115,37 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateBookResponse }
+     * 
+     */
+    public CreateBookResponse createCreateBookResponse() {
+        return new CreateBookResponse();
+    }
+
+    /**
      * Create an instance of {@link Book }
      * 
      */
     public Book createBook() {
         return new Book();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateBook }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "createBook")
+    public JAXBElement<CreateBook> createCreateBook(CreateBook value) {
+        return new JAXBElement<CreateBook>(_CreateBook_QNAME, CreateBook.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteBook }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "deleteBook")
+    public JAXBElement<DeleteBook> createDeleteBook(DeleteBook value) {
+        return new JAXBElement<DeleteBook>(_DeleteBook_QNAME, DeleteBook.class, null, value);
     }
 
     /**
@@ -95,6 +167,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteBookResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "deleteBookResponse")
+    public JAXBElement<DeleteBookResponse> createDeleteBookResponse(DeleteBookResponse value) {
+        return new JAXBElement<DeleteBookResponse>(_DeleteBookResponse_QNAME, DeleteBookResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBookByCode }{@code >}}
      * 
      */
@@ -104,12 +185,39 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateBookResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "updateBookResponse")
+    public JAXBElement<UpdateBookResponse> createUpdateBookResponse(UpdateBookResponse value) {
+        return new JAXBElement<UpdateBookResponse>(_UpdateBookResponse_QNAME, UpdateBookResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateBook }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "updateBook")
+    public JAXBElement<UpdateBook> createUpdateBook(UpdateBook value) {
+        return new JAXBElement<UpdateBook>(_UpdateBook_QNAME, UpdateBook.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAllBooksResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "getAllBooksResponse")
     public JAXBElement<GetAllBooksResponse> createGetAllBooksResponse(GetAllBooksResponse value) {
         return new JAXBElement<GetAllBooksResponse>(_GetAllBooksResponse_QNAME, GetAllBooksResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateBookResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.pnq.com/", name = "createBookResponse")
+    public JAXBElement<CreateBookResponse> createCreateBookResponse(CreateBookResponse value) {
+        return new JAXBElement<CreateBookResponse>(_CreateBookResponse_QNAME, CreateBookResponse.class, null, value);
     }
 
 }

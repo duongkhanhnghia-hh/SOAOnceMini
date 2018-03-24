@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getBookByCodeResponse complex type.
+ * <p>Java class for updateBookResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getBookByCodeResponse">
+ * &lt;complexType name="updateBookResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice.pnq.com/}book" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,35 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getBookByCodeResponse",namespace = "com.uet.pnq.getBookByCode.response",propOrder = {
+@XmlType(name = "updateBookResponse",namespace = "om.uet.pnq.updateBook.response",propOrder = {
     "_return"
 })
-public class GetBookByCodeResponse {
+public class UpdateBookResponse {
 
     @XmlElement(name = "return")
-    protected Book _return;
+    protected long _return;
 
     /**
      * Gets the value of the return property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Book }
-     *     
      */
-    public Book getReturn() {
+    public long getReturn() {
         return _return;
     }
 
     /**
      * Sets the value of the return property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Book }
-     *     
      */
-    public void setReturn(Book value) {
+    public void setReturn(long value) {
         this._return = value;
     }
 

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBooks",namespace = "com.uet.pnq.request.allbook")
+@XmlType(name = "getAllBooks",namespace = "com.uet.pnq.getAllBook.request")
 public class GetAllBooks {
 
 

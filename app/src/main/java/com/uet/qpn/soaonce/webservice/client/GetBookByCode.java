@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getBookByCode",namespace = "com.uet.pnq.request.bookbycode",propOrder = {
+@XmlType(name = "getBookByCode", namespace = "com.uet.pnq.getBookByCode.request",propOrder = {
     "arg0"
 })
 public class GetBookByCode {

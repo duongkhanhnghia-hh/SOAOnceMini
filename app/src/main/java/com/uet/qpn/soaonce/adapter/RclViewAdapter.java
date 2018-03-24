@@ -17,7 +17,8 @@ import android.widget.TextView;
 import com.uet.qpn.soaonce.EditActivity;
 import com.uet.qpn.soaonce.NewBookActivity;
 import com.uet.qpn.soaonce.R;
-import com.uet.qpn.soaonce.model.Book;
+import com.uet.qpn.soaonce.service.AsynDelData;
+import com.uet.qpn.soaonce.webservice.client.Book;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,11 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
     public RclViewAdapter(ArrayList<Book> books, Context context) {
         this.books = books;
         this.context = context;
+    }
+
+    public void resetData() {
+        books.clear();
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -78,12 +84,13 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
                                 ((Activity) context).startActivityForResult(intent, KEY_SEND_TO_NEWBOOK_ACT);
                                 break;
                             case R.id.nm_delbook:
+
+                                //del book
+                                new AsynDelData().execute(books.get(position));
+
                                 books.remove(position);
                                 notifyItemRemoved(position);
                                 notifyItemRangeChanged(position, books.size());
-                                //del book
-
-
                                 break;
                         }
                         return false;
@@ -121,6 +128,7 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
         books.get(position).setCode(book.getCode());
         books.get(position).setAuthor(book.getAuthor());
         books.get(position).setName(book.getName());
+        books.get(position).setId(book.getId());
 
         books.get(position).setQuantityInStock(book.getQuantityInStock());
 

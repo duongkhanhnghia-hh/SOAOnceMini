@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "WebServiceService", targetNamespace = "http://webservice.pnq.com/", wsdlLocation = "http://localhost:8000/books/?wsdl")
+@WebServiceClient(name = "WebServiceService", targetNamespace = "http://webservice.pnq.com/", wsdlLocation = "http://localhost:8888/books?wsdl")
 public class WebServiceService
     extends Service
 {
@@ -30,7 +30,7 @@ public class WebServiceService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8000/books/?wsdl");
+            url = new URL("http://localhost:8888/books?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -75,7 +75,7 @@ public class WebServiceService
     /**
      * 
      * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns WebService
      */
