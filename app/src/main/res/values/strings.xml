@@ -4,4 +4,5 @@
     <string name="name_book_demo">Cô gái năm ấy chúng ta cùng theo đuổi</string>
     <string name="delbook">Xóa sách</string>
     <string name="addbook">Thêm sách</string>
+    <string name="search_mn">Tìm kiếm</string>
 </resources>

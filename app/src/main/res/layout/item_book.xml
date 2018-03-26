@@ -7,32 +7,92 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <TextView
-        android:id="@+id/nameOfBook"
-        style="@style/texStyle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="name" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/numOfBook"
-        style="@style/texStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="number" />
+        <TextView
+            android:id="@+id/textview1"
+            style="@style/texStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên sách: " />
 
-    <TextView
-        android:id="@+id/authorOfBook"
-        style="@style/texStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="author" />
+        <TextView
+            android:id="@+id/nameOfBook"
+            style="@style/texStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview1"
+            android:layout_toRightOf="@+id/textview1"
+            android:gravity="center"
+            android:text="name" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/codeBook"
-        style="@style/texStyle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="code" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textview3"
+            style="@style/texStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên tác giả: " />
+
+        <TextView
+            android:id="@+id/authorOfBook"
+            style="@style/texStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview3"
+            android:layout_toRightOf="@+id/textview3"
+            android:gravity="center"
+            android:text="author" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textview2"
+            style="@style/texStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng: " />
+
+        <TextView
+            android:id="@+id/numOfBook"
+            style="@style/texStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview2"
+            android:layout_toRightOf="@+id/textview2"
+            android:gravity="center"
+            android:text="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textview4"
+            style="@style/texStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã sách: " />
+
+        <TextView
+            android:id="@+id/codeBook"
+            style="@style/texStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview4"
+            android:layout_toRightOf="@+id/textview4"
+            android:gravity="center"
+            android:text="code" />
+    </RelativeLayout>
 
 </LinearLayout>

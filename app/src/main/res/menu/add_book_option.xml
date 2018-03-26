@@ -5,5 +5,5 @@
         android:id="@+id/nm_op_addbook"
         android:icon="@android:drawable/ic_menu_add"
         android:title="addbook"
-        app:showAsAction="always" />
+        app:showAsAction="withText" />
 </menu>

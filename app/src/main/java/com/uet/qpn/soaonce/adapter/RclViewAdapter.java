@@ -21,6 +21,7 @@ import com.uet.qpn.soaonce.service.AsynDelData;
 import com.uet.qpn.soaonce.webservice.client.Book;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.uet.qpn.soaonce.config.Config.KEY_SEND_MAINACT_TO_EDITACT;
 import static com.uet.qpn.soaonce.config.Config.KEY_SEND_TO_NEWBOOK_ACT;
@@ -124,6 +125,10 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
         }
     }
 
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+
     public void resultEditActivity(Book book, int position) {
         books.get(position).setCode(book.getCode());
         books.get(position).setAuthor(book.getAuthor());
@@ -137,6 +142,61 @@ public class RclViewAdapter extends RecyclerView.Adapter<RclViewAdapter.ViewHold
     public void resultAddBook(Book book) {
         books.add(book);
         notifyItemInserted(books.size() - 1);
+    }
+
+    public Book removeItem(int position) {
+        final Book book = books.remove(position);
+        notifyItemRemoved(position);
+        return book;
+    }
+
+    public void addItem(int position, Book book) {
+        books.add(position, book);
+        notifyItemInserted(position);
+    }
+
+    public void moveItem(int fromPosition, int toPosition) {
+        final Book book = books.remove(fromPosition);
+        books.add(toPosition, book);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    private void applyAndAnimateRemovals(List<Book> bookList) {
+        for (int i = books.size() - 1; i >= 0; i--) {
+            final Book book = books.get(i);
+            if (!bookList.contains(book)) {
+                bookList.add(removeItem(i));
+            }
+        }
+    }
+
+    private void applyAndAnimateAdditions(List<Book> bookList) {
+        for (int i = 0, count = bookList.size(); i < count; i++) {
+            final Book book = bookList.get(i);
+            if (!books.contains(book)) {
+                addItem(i, book);
+
+            }
+        }
+    }
+
+    private void applyAndAnimateMovedItems(List<Book> bookList) {
+        for (int toPosition = bookList.size() - 1; toPosition >= 0; toPosition--) {
+            final Book book = bookList.get(toPosition);
+            final int fromPosition = books.indexOf(book);
+
+            if (fromPosition >= 0 && fromPosition != toPosition) {
+                moveItem(fromPosition, toPosition);
+            }
+
+        }
+    }
+
+    public void animateTo(List<Book> bookList) {
+        applyAndAnimateRemovals(bookList);
+        applyAndAnimateAdditions(bookList);
+        applyAndAnimateMovedItems(bookList);
+        bookList.clear();
     }
 
 

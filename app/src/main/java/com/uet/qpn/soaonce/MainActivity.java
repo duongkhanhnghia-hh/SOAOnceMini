@@ -4,11 +4,14 @@ package com.uet.qpn.soaonce;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar pbBar;
+    private ArrayList<Book> books;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void init() {
 
-        ArrayList<Book> books = new ArrayList<>();
+        books = new ArrayList<>();
         recyclerView = findViewById(R.id.rclViewBook);
         swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
         pbBar = findViewById(R.id.pgBar);
@@ -85,8 +89,44 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.add_book_option, menu);
+        menuInflater.inflate(R.menu.search_menu, menu);
+
+        final MenuItem searchItem = menu.findItem(R.id.search_mn);
+        final SearchView searchview = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                query = query.toLowerCase();
+                Log.d("change", query);
+                final List<Book> bookList = new ArrayList<>();
+                for (Book book : adapter.getBooks()) {
+                    final String bookName = book.getName().toLowerCase();
+                    final String bookAuthor = book.getAuthor().toLowerCase();
+                    final String bookCode = book.getAuthor().toLowerCase();
+                    final String bookQuantity = String.valueOf(book.getQuantityInStock()).toLowerCase();
+                    if (bookName.contains(query)) {
+                        bookList.add(book);
+                    } else if (bookAuthor.contains(query)) {
+                        bookList.add(book);
+                    } else if (bookCode.contains(query)) {
+                        bookList.add(book);
+                    } else if (bookQuantity.contains(query)) {
+                        bookList.add(book);
+                    }
+                }
+                adapter.animateTo(bookList);
+                recyclerView.scrollToPosition(0);
+                return true;
+            }
+        });
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
