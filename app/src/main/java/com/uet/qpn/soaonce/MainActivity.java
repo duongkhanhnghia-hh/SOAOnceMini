@@ -4,10 +4,10 @@ package com.uet.qpn.soaonce;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -22,12 +22,9 @@ import com.uet.qpn.soaonce.adapter.RclViewAdapter;
 import com.uet.qpn.soaonce.service.AsynInsertData;
 import com.uet.qpn.soaonce.service.AsynUpdateData;
 import com.uet.qpn.soaonce.webservice.client.Book;
-import com.uet.qpn.soaonce.webservice.client.WebService;
-import com.uet.qpn.soaonce.webservice.client.WebServiceService;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
@@ -38,6 +35,8 @@ import java.util.List;
 
 import static com.uet.qpn.soaonce.config.Config.KEY_SEND_MAINACT_TO_EDITACT;
 import static com.uet.qpn.soaonce.config.Config.KEY_SEND_TO_NEWBOOK_ACT;
+import static com.uet.qpn.soaonce.config.Config.NAMESPACE;
+import static com.uet.qpn.soaonce.config.Config.WEBSERVICE_URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -179,18 +178,17 @@ public class MainActivity extends AppCompatActivity {
         protected ArrayList<Book> doInBackground(Void... voids) {
 
             ArrayList<Book> books = new ArrayList<>();
-            String NAMESPACE = "http://webservice.pnq.com/";
+
+
             String METHOD_NAME = "getAllBooks";
-            String URL = "http://192.168.0.107:8888/books?wsdl";
             String ACTION = NAMESPACE + METHOD_NAME;
 
             SoapObject soapObject = new SoapObject(NAMESPACE, METHOD_NAME);
-
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;
             envelope.setOutputSoapObject(soapObject);
 
-            HttpTransportSE httpTransportSE = new HttpTransportSE(URL);
+            HttpTransportSE httpTransportSE = new HttpTransportSE(WEBSERVICE_URL);
             httpTransportSE.debug = true;
             try {
                 httpTransportSE.call(ACTION, envelope);

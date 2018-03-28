@@ -4,6 +4,6 @@
     <item
         android:id="@+id/nm_op_addbook"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="addbook"
+        android:title="@string/addbook"
         app:showAsAction="withText" />
 </menu>
